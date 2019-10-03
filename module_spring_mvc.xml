@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_spring_mvc" default="compile.module.spring_mvc">
+  <dirname property="module.spring_mvc.basedir" file="${ant.file.module_spring_mvc}"/>
+  
+  <property name="module.jdk.home.spring_mvc" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.spring_mvc" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.spring_mvc" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.spring_mvc" value="-encoding UTF-8 -source 7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="spring_mvc.output.dir" value="${module.spring_mvc.basedir}/target/classes"/>
+  <property name="spring_mvc.testoutput.dir" value="${module.spring_mvc.basedir}/target/test-classes"/>
+  
+  <path id="spring_mvc.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="spring_mvc.module.production.classpath">
+    <path refid="${module.jdk.classpath.spring_mvc}"/>
+    <path refid="library.maven:_jstl:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.9.release.classpath"/>
+  </path>
+  
+  <path id="spring_mvc.runtime.production.module.classpath">
+    <pathelement location="${spring_mvc.output.dir}"/>
+    <path refid="library.maven:_jstl:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.9.release.classpath"/>
+  </path>
+  
+  <path id="spring_mvc.module.classpath">
+    <path refid="${module.jdk.classpath.spring_mvc}"/>
+    <pathelement location="${spring_mvc.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_jstl:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.9.release.classpath"/>
+  </path>
+  
+  <path id="spring_mvc.runtime.module.classpath">
+    <pathelement location="${spring_mvc.testoutput.dir}"/>
+    <pathelement location="${spring_mvc.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_jstl:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.9.release.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.spring_mvc">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.spring_mvc">
+    <patternset refid="excluded.from.module.spring_mvc"/>
+  </patternset>
+  
+  <path id="spring_mvc.module.sourcepath">
+    <dirset dir="${module.spring_mvc.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resource"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.spring_mvc" depends="compile.module.spring_mvc.production,compile.module.spring_mvc.tests" description="Compile module Spring_MVC"/>
+  
+  <target name="compile.module.spring_mvc.production" depends="register.custom.compilers" description="Compile module Spring_MVC; production classes">
+    <mkdir dir="${spring_mvc.output.dir}"/>
+    <javac2 destdir="${spring_mvc.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.spring_mvc}/javac">
+      <compilerarg line="${compiler.args.spring_mvc}"/>
+      <bootclasspath refid="spring_mvc.module.bootclasspath"/>
+      <classpath refid="spring_mvc.module.production.classpath"/>
+      <src refid="spring_mvc.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.spring_mvc"/>
+    </javac2>
+    
+    <copy todir="${spring_mvc.output.dir}">
+      <fileset dir="${module.spring_mvc.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.spring_mvc.basedir}/src/main/resource">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.spring_mvc.tests" depends="register.custom.compilers,compile.module.spring_mvc.production" description="compile module Spring_MVC; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.spring_mvc" description="cleanup module">
+    <delete dir="${spring_mvc.output.dir}"/>
+    <delete dir="${spring_mvc.testoutput.dir}"/>
+  </target>
+</project>
